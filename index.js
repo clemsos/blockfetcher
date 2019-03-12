@@ -27,7 +27,7 @@ const getFile = async function(fn) {
   return text
 }
 
-const writeFile = function(fn, data, callback) {
+const writeFile = async (fn, data) => {
   return new Promise( function(fulfill, reject) {
     fs.writeFile(fn, data, function(err) {
         if(err) reject(err)
@@ -36,7 +36,7 @@ const writeFile = function(fn, data, callback) {
   })
 }
 
-const createDir(dirName) {
+const createDir= async (dirName) => {
     return new Promise((fulfill, reject) => {
       const dir = `blocks/${dirName}`
       mkdirp(dir, function (err) {
@@ -46,20 +46,19 @@ const createDir(dirName) {
     })
 }
 
-const saveProject = async (gistId) {
+const saveProject = async (gistId) => {
 
-  const slug = slugify(gistId);
-
-  return new Promise ((fulfill, reject) => {
+  return new Promise (async (fulfill, reject) => {
     // fetch URLS of files from gist
-    const urls = getFilesURLs(gistId)
+    const urls = await getFilesURLs(gistId)
 
     // get all files
     Promise.all(
       urls.map(f => getFile(f))
     )
-    .then(urls => {
+    .then( async (files) => {
       // create a dir
+      const slug = slugify(gistId);
       const dir = await createDir(slug)
 
       // save files
@@ -69,6 +68,8 @@ const saveProject = async (gistId) {
         return path.join(dir,fn)
       })
 
+      // console.log(filenames);
+
       // save files
       Promise.all(
           files.map((f,i) => writeFile(filenames[i], f))
@@ -77,10 +78,6 @@ const saveProject = async (gistId) {
       .catch(err => reject(err))
     })
     .catch(err => reject(err))
-  })
-
-
-
   })
 
 }
