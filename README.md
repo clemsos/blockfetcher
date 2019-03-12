@@ -1,4 +1,4 @@
-# Blocks Fectcher
+# Block Fetcher
 
 Fetch blocks from gist and save the files
 
