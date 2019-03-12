@@ -1,6 +1,6 @@
 {
   "name": "blockfetcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetching and saving blo.cks.org",
   "main": "index.js",
   "scripts": {
