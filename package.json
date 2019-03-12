@@ -1,0 +1,17 @@
+{
+  "name": "blocksfetcher",
+  "version": "1.0.0",
+  "description": "Fetching and saving blo.cks.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Clément Renaud <hi@clementrenaud.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.3.0",
+    "slugify": "^1.3.4"
+  }
+}
