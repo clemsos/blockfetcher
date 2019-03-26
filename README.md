@@ -1,5 +1,7 @@
 # Block Fetcher
 
+[![npm version](https://badge.fury.io/js/blockfetcher.svg)](https://badge.fury.io/js/blockfetcher)
+
 Fetch blocks from gist and save the files
 
 ```js
