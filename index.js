@@ -48,6 +48,8 @@ const createDir= async (dirName, folder) => {
 
 const saveProject = async (gistId, dest, filename) => {
 
+  console.log(`Saving ${gistId} to ${dest}/${filename}...`);
+
   return new Promise (async (fulfill, reject) => {
     // fetch URLS of files from gist
     const urls = await getFilesURLs(gistId)

@@ -9,6 +9,9 @@
   },
   "author": "Clément Renaud <hi@clementrenaud.com>",
   "license": "ISC",
+  "bin": {
+    "blockfetcher": "cli.js"
+  },
   "dependencies": {
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.3.0",
